@@ -11,8 +11,8 @@ foreach (Animal animal in new Animal[] { dog, cat })
     Console.WriteLine($"{animal.Name}: {animal.Speak()}, {animal.Breathe()}");
 dog.Age = 4;
 Verify.That(dog.Age == 4 && dog.Speak() == "Гав", "Состояние и поведение");
-Verify.That(ReferenceEquals(dog.Owner, cat.Owner), "Агрегация владельца");
-Verify.That(!ReferenceEquals(dog.Lungs, cat.Lungs), "Композиция органов");
+Verify.That(object.ReferenceEquals(dog.Owner, cat.Owner), "Агрегация владельца");
+Verify.That(!object.ReferenceEquals(dog.Lungs, cat.Lungs), "Композиция органов");
 Verify.Throws<ArgumentOutOfRangeException>(() => dog.Age = -1);
 Console.WriteLine("Проверки выполнены успешно.");
 
